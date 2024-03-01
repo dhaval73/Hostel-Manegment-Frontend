@@ -4,7 +4,10 @@ function App() {
   return (
     <>
       <UserLayout>
+       
+
         <Outlet />
+    
       </UserLayout>
       {/* <AuthLayout>
         <Outlet />
