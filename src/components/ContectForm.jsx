@@ -68,7 +68,8 @@ function ContactPage() {
       <section className="self-stretch px-3.5 py-2.5 mt-8 shadow-2xl bg-zinc-300 rounded-[50px_0px] max-md:max-w-full">
         <article className="flex  max-md:flex-col max-md:gap-0 rounded-[50px_0px] overflow-hidden ">
           <div className="flex flex-col w-[43%] max-md:ml-0 max-md:w-full">
-            <div className="flex flex-col grow px-10 py-12 w-full text-base bg-zinc-800 text-zinc-300 max-md:px-5 max-md:mt-10 max-md:max-w-full">
+            <div className=" relative flex flex-col grow px-10 py-12 w-full text-base bg-zinc-800 text-zinc-300 max-md:px-5 max-md:mt-10 max-md:max-w-full">
+              <div className=" absolute bottom-24 right-20 h-28 w-28 rounded-full bg-[#484848]/30"></div>
               <h2 className="text-3xl font-semibold">Contact Information</h2>
               <p className="mt-6 text-lg text-stone-300">
                 Say something to start a live chat!

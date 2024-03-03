@@ -4,8 +4,8 @@ import { Button, Input } from './index.js'
 
 function LoginForm() {
   return (
-    <div className=' container    w-full flex items-center justify-center mt-10 mb-10'>
-      <div className="w-full max-w-[400px]  bg-slate-900/10 flex flex-col  items-center justify-center rounded-br-3xl rounded-tl-3xl p-10">
+    <div className=' w-full h-full  '>
+      <div className="w-full   flex flex-col  items-center justify-center  p-10">
         <div className="w-full text-3xl font-bold flex justify-center mb-10">Sign In</div>
         <div className="w-full  flex flex-col justify-center items-center">
           <Input
