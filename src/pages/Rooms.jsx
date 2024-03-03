@@ -1,8 +1,14 @@
 import React from 'react'
+import { RoomShowcase } from '../components'
 
 function Rooms() {
   return (
-    <div>Rooms</div>
+    <>
+    <div className=" container px-44">
+
+    <RoomShowcase />
+    </div>
+    </>
   )
 }
 
