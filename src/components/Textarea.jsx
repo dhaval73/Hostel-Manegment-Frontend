@@ -1,6 +1,6 @@
 import  { forwardRef } from 'react'
 
-function Input({
+function Textarea({
     label,
     type="text",
     id="",
@@ -26,7 +26,7 @@ function Input({
                 <textarea
                    
                     id={id}
-                    className={`form-input w-full px-4 py-1 border rounded-br-2xl rounded-tl-2xl border-gray-300 border-l-2 border-t-2   text-gray-700 text-lg focus:ring-blue-500 ${className} ${error && "border-red-700 border-2 outline-none"} `}
+                    className={`form-input resize-none w-full px-4 py-1 border rounded-br-2xl rounded-tl-2xl border-gray-300 border-l-2 border-t-2   text-gray-700 text-lg focus:ring-blue-500 ${className} ${error && "border-red-700 border-2 outline-none"} `}
                     required={required}
                     placeholder={ props.placeholder ? props.placeholder : label}
                    {...props}
@@ -37,4 +37,4 @@ function Input({
     )
 }
 
-export default forwardRef(Input)
+export default forwardRef(Textarea)

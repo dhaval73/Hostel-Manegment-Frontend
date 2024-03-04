@@ -1,17 +1,23 @@
-import { Outlet } from "react-router-dom"
-import { AuthLayout, UserLayout } from "./Layout"
+import { Outlet,useLocation } from "react-router-dom"
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {Contect, Home, Login, Rooms} from './pages/index.js';
+import { AdminLayout, AuthLayout, UserLayout } from "./Layout"
 function App() {
+  const location = useLocation()
+
   return (
     <>
-      <UserLayout>
-       
+    {location.pathname.includes('/admin') ? 
+    <AdminLayout>
+    <Outlet />
+    </AdminLayout>
+  :
 
+      <UserLayout>
         <Outlet />
-    
       </UserLayout>
-      {/* <AuthLayout>
-        <Outlet />
-      </AuthLayout>         */}
+
+  }
     </>
   )
 }
