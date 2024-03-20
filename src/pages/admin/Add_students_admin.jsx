@@ -9,7 +9,7 @@ function Add_students_admin() {
         <Input label='First Name' />
         <Input label='Last Name' />
         <Input label='Enrollment No' />
-        <Input type="number" label='Mobile Number' className="[-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none" />
+        <Input type="number" label='Mobile Number' />
         <Input label='Room number' />
         <Input type="date" label='Date Of Birth' className="" />
         <Textarea label='Address' />

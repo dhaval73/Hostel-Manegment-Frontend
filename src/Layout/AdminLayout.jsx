@@ -7,7 +7,7 @@ function AdminLayout({children}) {
     <>
     <div className="flex flex-col min-h-screen  bg-zinc-50">
     <Header />
-    <div className="flex-grow  ">
+    <div className="flex-grow">
         {children}
         </div>
     <Footer />

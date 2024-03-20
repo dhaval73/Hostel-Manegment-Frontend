@@ -19,8 +19,9 @@ function Button(
       type={type}
       className={`${color == "blue" && 'bg-blue-700 hover:bg-blue-800 focus:ring-blue-600'} 
       ${color == "green" && 'bg-green-700 hover:bg-green-800 focus:ring-green-600'}
-      ${color == "zinc" && 'bg-zinc-800 hover:bg-zink-700 focus:ring-zinc-600'}  text-white px-4 py-1 mx-1 rounded-tl-2xl rounded-br-2xl focus:ring-2 focus:ring-opacity-100 w-fit ${className}`}
+      ${color == "zinc" && 'bg-zinc-800 hover:bg-zink-700 focus:ring-zinc-600'}  text-white px-4 py-1 mx-1 rounded-tl-xl rounded-br-lg focus:ring-2 focus:ring-opacity-100 w-fit ${className}`}
       {...props}
+      
       ref={ref}
     >
       {children || text}

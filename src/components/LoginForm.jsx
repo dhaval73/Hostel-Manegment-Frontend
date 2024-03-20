@@ -16,6 +16,14 @@ function LoginForm() {
             type="password"
             label="password"
           />
+          <Input
+            type="password"
+            label="password"
+          />
+          <Input
+            type="password"
+            label="password"
+          />
           <div className=" w-full flex justify-between text-blue-700 mb-5 px-1 cursor-pointer focus:cursor-auto">
             <span>Forgote Password ?</span>
             <span>Sign Up</span>
