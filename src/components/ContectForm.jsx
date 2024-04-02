@@ -1,7 +1,9 @@
+import contactService from "../service/contactus"
 import { Input, Radio, Button, Textarea } from "./index"
-import { useForm, Controller } from "react-hook-form"
+import { useForm} from "react-hook-form"
+import {useNavigate} from "react-router-dom"
 export function ContactForm() {
-
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -9,7 +11,20 @@ export function ContactForm() {
     formState: { errors },
   } = useForm()
 
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = (data) => {
+    console.log(data)
+    try {
+      (async ()=>{
+        const res = contactService.save(data)
+      
+        if(res){
+          navigate("/")
+        }
+      })()
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="container flex flex-col h-full py-14 "  >
@@ -62,28 +77,22 @@ export function ContactForm() {
         />
       </div>
 
-      <div className="flex flex-col my-5">
-        <div className="flex flex-row justify-between">
-        <p className=" text-black font-bold">Select inquiry type ?</p>
-        </div>
-        <div className=" flex flex-col   w-full  ">
-          <Radio
-            name="inquiryType"
-            options={[
-              { value: "General", label: "General Inquiry" },
-              { value: "Hostel", label: "Hostel Inquiry" },
-              { value: "Mess", label: "Mess Inquiry" }
-            ]}
-            control={control} // Pass control from react-hook-form
-            rules={{ required: "Please select one" }} // Optional: pass validation rules
-          />
 
-        {errors.inquiryType && <span className='text-red-700'>{errors.inquiryType.message}</span>}
-        </div>
-      </div>
+      <Radio
+        label="Select inquiry type ?"
+        name="inquiryType"
+        options={[
+          { value: "General", label: "General Inquiry" },
+          { value: "Hostel", label: "Hostel Inquiry" },
+          { value: "Mess", label: "Mess Inquiry" }
+        ]}
+        error={errors.inquiryType}
+        control={control} // Pass control from react-hook-form
+        rules={{ required: "Please select one" }} // Optional: pass validation rules
+      />
       <div className="">
         <Textarea
-          className=" resize-none"
+          className="resize-none"
           type="textarea"
           label="Message"
           placeholder="i want to inform"
@@ -92,7 +101,7 @@ export function ContactForm() {
           })}
           error={errors.message}
         />
-      </div>
+      </div>  
 
 
       <div className="flex justify-end ">

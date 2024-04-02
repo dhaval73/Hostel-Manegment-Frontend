@@ -31,7 +31,7 @@ function Textarea({
                    {...props}
                    ref={ref}
                 />
-                    {error && <span className=''>{error.message}</span>}
+                    {error && <span className=' text-red-700'>{error.message}</span>}
 
             </div>
         </>

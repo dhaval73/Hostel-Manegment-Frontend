@@ -1,8 +1,9 @@
 import  { useState } from 'react';
 import { NavLink,useNavigate  } from 'react-router-dom';
 import Button from '../Button';
-
+import authStore from '../../store/authStore';
 function Header() {
+    const {isLoggedin, logout}= authStore((state)=>({isLoggedin:state.isLoggedin ,logout:state.logout}))
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const navigate = useNavigate()
     const toggleMenu = () => {
@@ -17,6 +18,16 @@ function Header() {
                     Rk Hostel
                 </span>
                 <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                   {
+                    isLoggedin ? 
+                    <Button
+                        type="button"
+                        color="green"
+                        onClick={()=>logout()}
+                    >
+                        Logout
+                    </Button>
+                    :
                     <Button
                         type="button"
                         color="green"
@@ -24,6 +35,9 @@ function Header() {
                     >
                         Sign in
                     </Button>
+                   }
+                    
+                    
                     <button
                         onClick={toggleMenu}
                         type="button"

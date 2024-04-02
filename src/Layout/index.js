@@ -1,9 +1,8 @@
 import AdminLayout from "./AdminLayout";
-import AuthLayout from "./AuthLayout";
-import UserLayout from "./userLayout";
+import UserLayout from "./UserLayout";
+
 
 export {
     AdminLayout,
-    AuthLayout,
-    UserLayout
+    UserLayout,
 }

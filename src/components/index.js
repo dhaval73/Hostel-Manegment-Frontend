@@ -5,7 +5,10 @@ import RoomShowcase from "./RoomShowCase";
 import ContactForm from "./contectForm";
 import Radio from "./Radio";
 import Textarea from "./Textarea";
-Textarea
+import SignUpForm from "./SignUpForm";
+import AddStudentForm from "./AddStudentForm";
+import SetRoomDetailForm from "./SetRoomDetailForm";
+import ShowStudentTabel from "./ShowStudentTabel";
 export {
     Button,
     Input,
@@ -14,4 +17,8 @@ export {
     ContactForm,
     Radio,
     Textarea,
+    SignUpForm,
+    AddStudentForm,
+    SetRoomDetailForm,
+    ShowStudentTabel
 }

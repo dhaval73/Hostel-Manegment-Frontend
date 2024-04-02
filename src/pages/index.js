@@ -2,9 +2,14 @@ import Home from "./Home"
 import Login from "./Login"
 import Rooms from "./Rooms"
 import Contect from "./Contect"
-export  {
+import SignUp from "./SignUp"
+import LoadingPage from "./LoadingPage"
+export {
     Home,
     Login,
     Rooms,
-    Contect
+    Contect,
+    SignUp,
+    LoadingPage
+
 }

@@ -6,6 +6,9 @@ function Radio(
     name = "radio",
     options = [],
     control,
+    error,
+    containerClassName = "",
+    label = "",
     ...props
   },
   ref
@@ -13,6 +16,9 @@ function Radio(
   const id = useId();
 
   return (
+    <div className="flex flex-col mb-5  ">
+    <div className={`flex flex-col w-full ${containerClassName}`} >
+    <label className=" text-black ">{label}</label>
     <Controller
       control={control}
       name={name}
@@ -23,7 +29,8 @@ function Radio(
               <input
                 id={`${id}-${index}`}
                 name={name}
-                ref={ref} // Remove this line to prevent ref warning
+                ref={ref} 
+                defaultChecked={option?.default}
                 onChange={() =>onChange(option.value)}
                 value={option.value}
                 className="accent-gray-700 "
@@ -38,6 +45,11 @@ function Radio(
       )}
       {...props}
     />
+
+    </div>
+    {error && <span className='text-red-700'>{error.message}</span>}
+  </div>
+   
   );
 }
 
