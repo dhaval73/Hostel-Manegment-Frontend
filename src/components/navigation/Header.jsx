@@ -2,6 +2,7 @@ import  { useState } from 'react';
 import { NavLink,useNavigate  } from 'react-router-dom';
 import Button from '../Button';
 import authStore from '../../store/authStore';
+import authService from '../../service/auth';
 function Header() {
     const {isLoggedin, logout}= authStore((state)=>({isLoggedin:state.isLoggedin ,logout:state.logout}))
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,6 +10,17 @@ function Header() {
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
+
+    const logoutHandel = async()=>{
+        try {
+            const res = await authService.logout();
+           if (res) {
+               logout()
+           }
+        } catch (error) {
+           console.log(error); 
+        }
+    }
 
     return (
         <nav className="bg-white dark:bg-zinc-900 sticky w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600 ">
@@ -23,7 +35,7 @@ function Header() {
                     <Button
                         type="button"
                         color="green"
-                        onClick={()=>logout()}
+                        onClick={()=>logoutHandel()}
                     >
                         Logout
                     </Button>

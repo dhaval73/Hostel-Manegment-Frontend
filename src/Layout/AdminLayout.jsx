@@ -7,21 +7,25 @@ import { useNavigate } from "react-router-dom"
 function AdminLayout({ children, authentication = false }) {
   const { user } = authStore((state) => ({ user: state.user }))
   const navigate = useNavigate()
-  const authStatus = authStore((state) => state.isLoggedin)
+  const isLoggedin = authStore((state) => state.isLoggedin)
+  const authStatus = authStore((state)=> state.user.role == "Admin")
   console.log(authStatus);
   const [loader, setLoader] = useState(true)
 
   useEffect(() => {
     setLoader(true)
-    if (authentication && authStatus !== authentication) {
-      navigate("/admin/login")
-    } else if (!authentication && authentication !== authStatus) {
-      if (user?.role != "Admin"){
+    if(isLoggedin){
+      if (authentication && authStatus !== authentication) {
         navigate("/admin/login")
-      }
+      } else if (!authentication && authentication !== authStatus) {
+        navigate('/admin')
     }
+  }else{
+    navigate("/admin/login") 
+  }
+    
     setLoader(false)
-  }, [authStatus, authentication, navigate, user])
+  }, [authStatus, authentication, navigate, user,isLoggedin])
 
   return loader ?
     <><LoadingPage /></> :

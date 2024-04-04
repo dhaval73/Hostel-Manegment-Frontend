@@ -3,6 +3,7 @@ import { Contect, Home, Login, Rooms, SignUp } from '../pages/index.js';
 import { Add_students_admin, Home_admin, Rooms_admin } from '../pages/admin/index.js';
 import { AdminLayout, UserLayout } from '../Layout/index.js';
 import App from '../App.jsx'
+import Edit_student from "../pages/admin/Edit_Student.jsx";
 
 const router = createBrowserRouter([{
   path: "/",
@@ -62,6 +63,14 @@ const router = createBrowserRouter([{
       element: (<AdminLayout authentication>
 
         <Add_students_admin />
+      </AdminLayout>
+      )
+    },
+    {
+      path: "/admin/edit_student/:id",
+      element: (
+      <AdminLayout authentication>
+        <Edit_student />
       </AdminLayout>
       )
     },

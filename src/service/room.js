@@ -16,7 +16,7 @@ class RoomService{
         } catch (error) {
             // Handle error
             console.error('Error saving room:', error);
-            throw new Error('Failed to save room');
+            throw error.response?.data?.msg;
         }
     }
 }

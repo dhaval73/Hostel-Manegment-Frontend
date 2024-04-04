@@ -10,9 +10,7 @@ function Home_admin() {
         <header className="flex flex-col justify-center items-center mt-20 mr-12 max-w-full w-[692px]">
           <h1 className="text-4xl tracking-tighter text-black leading-[60px]">Student Details</h1>
         </header>
-        
         <main className="flex flex-col gap-0 mt-5 justify-center items-center">
-          
           <div className="">
             <ShowStudentTabel />
           </div>

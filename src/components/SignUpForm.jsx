@@ -1,9 +1,12 @@
-import { Button, Input } from './index.js'
+import { AlertMessageDanger, AlertMessageSuccess, Button, Input } from './index.js'
 import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom"
 import authService from "../service/auth.js"
+import { useState } from 'react'
 
 function SignUpForm() {
+  const [showAlertDanger, setShowAlertMessage] = useState({ isShow: false, message: "" })
+  const [showAlertSuccess, setShowAlertSuccess] = useState({ isShow: false, message: "" })
   const navigate = useNavigate()
   const {
     register,
@@ -20,12 +23,18 @@ function SignUpForm() {
       const res = await authService.register(data)
       console.log(res);
       if(res == true){
+        setShowAlertSuccess({ isShow: true, message:"Save sucessfull" })
         navigate("/login")
       }
     } catch (error) {
       console.log(error);
+      setShowAlertMessage({ isShow: true, message: error })
+    }finally {
+      setTimeout(() => {
+        setShowAlertMessage({ isShow: false })
+        setShowAlertSuccess({ isShow: false})
+      }, 3000);
     }
-
   }
   return (
     <div className=' w-full h-full  '>
@@ -85,7 +94,12 @@ function SignUpForm() {
             <span onClick={() => navigate("/login")}>Login</span>
           </div>
           <Button type="submit" className=" w-[100px]" />
-
+          <AlertMessageDanger
+        showAlertDanger={showAlertDanger}
+      />
+      <AlertMessageSuccess
+        showAlertSuccess={showAlertSuccess}
+      />
         </form>
       </div>
     </div>

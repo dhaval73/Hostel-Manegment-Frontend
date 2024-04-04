@@ -9,6 +9,10 @@ import SignUpForm from "./SignUpForm";
 import AddStudentForm from "./AddStudentForm";
 import SetRoomDetailForm from "./SetRoomDetailForm";
 import ShowStudentTabel from "./ShowStudentTabel";
+import EditStudentForm from "./EditStudentForm";
+import AlertModal from "./AlertModal";
+import AlertMessageDanger from "./AlertMessageDanger";
+import AlertMessageSuccess from "./AlertMessageSuccess";
 export {
     Button,
     Input,
@@ -20,5 +24,11 @@ export {
     SignUpForm,
     AddStudentForm,
     SetRoomDetailForm,
-    ShowStudentTabel
+    ShowStudentTabel,
+    EditStudentForm,
+    AlertModal,
+    AlertMessageDanger,
+AlertMessageSuccess
+
+
 }

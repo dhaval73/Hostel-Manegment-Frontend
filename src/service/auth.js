@@ -7,17 +7,14 @@ class AuthService {
         this.baseUrl = `${server_url}auth`; // Replace this with your API base URL
     }
 
-    async register({ username, email, password }) {
+    async register(data) {
         try {
-            const response = await axios.post(`${this.baseUrl}/register`, {
-                username,
-                email,
-                password
-            });
+            const response = await axios.post(`${this.baseUrl}/register`, data);
             console.log(response.data);
             return response.data?.success;
         } catch (error) {
-            return error.response.data?.error?.msg || 'Failed to register';
+            console.log(error);
+            throw error.response?.data?.msg || 'Failed to register'
         }
     }
 
@@ -30,9 +27,20 @@ class AuthService {
             console.log(response);
             return response.data.success;
         } catch (error) {
-            throw error.response.data.error?.msg || 'Failed to login';
+            throw error.response.data?.msg || 'Failed to login';
         }
     }
+
+    async logout() {
+        try {
+            const response = await axios.post(`${this.baseUrl}/logout`, {}, { withCredentials: true });
+            console.log(response);
+            return response.data.success;
+        } catch (error) {
+            console.log(error);
+            throw new Error (error.response.data?.msg || 'Failed to logout')
+        }
+    }    
 
     async getUser() {
         try {
