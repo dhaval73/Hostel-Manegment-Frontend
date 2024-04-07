@@ -96,17 +96,15 @@ function EditStudentForm() {
           error={errors.mobile_number}
         />
 
-    <Input 
-    label='Room number'
-    {...register("room_number", {
-        required: "Room No is required",
-        pattern: {
-            value: /^[A-Za-z0-9]/,
-            message: "Room No should contain only letters and numbers"
-        }
-      })}
-      error={errors.room_number}
-    />
+<Input
+          label="Hostel Name"
+          className=""
+          placeholder="BH C Bulding"
+          {...register("hostel_name", {
+            required: "Hostel name is required",
+          })}
+          error={errors.hostel_name}
+        />
     <Input 
     label='Room number'
     {...register("room_number", {
@@ -160,7 +158,7 @@ function EditStudentForm() {
         />
     </div>
     </div>
-    <Button type="submit" color="zinc" className="px-6" />
+    <Button type="submit" text="Submit" color="zinc" className="px-6" />
     <AlertMessageDanger
         showAlertDanger={showAlertDanger}
       />

@@ -12,6 +12,7 @@ function AddStudentForm() {
     register,
     handleSubmit,
     control,
+    reset,
     formState: { errors },
   } = useForm()
 
@@ -24,6 +25,7 @@ function AddStudentForm() {
           console.log(res)
           setStudent(res.student)
           setShowAlertSuccess({ isShow: true, message:"Save sucessfull" })
+          reset()
         }
       } catch (error) {
         console.log(error);
@@ -42,7 +44,7 @@ function AddStudentForm() {
       <div className='grid grid-cols-2 gap-x-10 max-sm:grid-cols-1 row-span-4'>
         <Input
           label="First name"
-          placeholder="Dhaval"
+          placeholder="eg. Tipendra"
           {...register("first_name", {
             required: "First name is required",
             pattern: {
@@ -54,7 +56,7 @@ function AddStudentForm() {
         />
         <Input
           label='Last Name'
-          placeholder="Dhaval"
+          placeholder="eg. Gada"
           {...register("last_name", {
             required: "Last name is required",
             pattern: {
@@ -144,7 +146,7 @@ function AddStudentForm() {
             className="resize-none"
             type="textarea"
             label="Address"
-            placeholder="Amra , jamnagar ... "
+            placeholder="Gokuldham society ... "
             {...register("address", {
               required: "Address is required"
             })}
@@ -152,7 +154,7 @@ function AddStudentForm() {
           />
         </div>
       </div>
-      <Button type="submit" color="zinc" className="px-6" />
+      <Button type="submit" text="Submit" color="zinc" className="px-6" />
 
       <AlertMessageDanger
         showAlertDanger={showAlertDanger}
